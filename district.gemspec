@@ -9,9 +9,11 @@ Gem::Specification.new do |gem|
   gem.summary     = gem.description
   gem.homepage    = "https://github.com/alaibe/district"
 
-  gem.add_development_dependency "gemnasium-parser"
-
   gem.files         = `git ls-files`.split($\)
   gem.test_files    = gem.files.grep(/^spec\//)
   gem.require_paths = ["lib"]
+
+  gem.add_dependency "gemnasium-parser"
+  gem.add_development_dependency "rspec"
+
 end
