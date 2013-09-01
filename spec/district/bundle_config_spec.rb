@@ -9,7 +9,7 @@ describe BundleConfig do
   before do
     FileUtils.copy("./spec/fixtures/default", config)
   end
-  
+
   describe "#clean_local" do
     context "without gems in args" do
       it "clean all gem from file" do
@@ -26,7 +26,14 @@ describe BundleConfig do
         expect(bundle_config).to eql("BUNDLE_LOCAL__TEST: /test\nno local gem on this line\nBUNDLE_LOCAL__TEST_3: /test_3\n")
       end
     end
-
   end
 
+  describe "#add_local" do
+    it "add all personal gem to bundle config file" do
+      bundle_config.add_local gems: ["rails", "bundler"], lib_dir: "/opt"
+      bundle_config = File.read(config)
+      expect(bundle_config).to include("BUNDLE_LOCAL__RAILS: /opt/rails")
+      expect(bundle_config).to include("BUNDLE_LOCAL__BUNDLER: /opt/bundle")
+    end
+  end
 end

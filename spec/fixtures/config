@@ -1,4 +1,7 @@
-BUNDLE_LOCAL__TEST: /test
-no local gem on this line
-BUNDLE_LOCAL__TEST_2: /test_2
+
+BUNDLE_LOCAL__RAILS: /opt/rails
+
+BUNDLE_LOCAL__BUNDLER: /opt/bundler
+/test_2
 BUNDLE_LOCAL__TEST_3: /test_3
+BUNDLE_LOCAL__TEST_4: /test_4
